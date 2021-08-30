@@ -21,6 +21,7 @@ public class Jogador implements Serializable {
     @Column(length = 50, nullable = false)
     private String nome;
 
+    //TODO: A classe ClubeJogador deveria ter essa relação (Veigal)
     @OneToMany(mappedBy = "jogador")
     List<ClubeJogador> clubeJogadorList;
 

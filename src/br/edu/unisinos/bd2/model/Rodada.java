@@ -17,6 +17,9 @@ public class Rodada implements Serializable {
     @Column(nullable = false, unique = true)
     private Campeonato campeonato;
 
+    @Column(length = 2, nullable = false)
+    private int idRodada;    
+    
     @Column(length = 2)
     private int totalJogos;
 
@@ -29,11 +32,8 @@ public class Rodada implements Serializable {
     @Column(length = 3)
     private int totalGols;
 
-    public Rodada(Campeonato idCampeonato) {
+    public Rodada(Campeonato campeonato, int idRodada) {
         this.campeonato = campeonato;
-    }
-
-    public Rodada() {
-
+        this.idRodada = idRodada;
     }
 }
