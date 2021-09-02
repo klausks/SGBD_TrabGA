@@ -13,6 +13,7 @@ public class Posicao implements Serializable {
     @SequenceGenerator(name = "s_Posicao", sequenceName = "s_Posicao", allocationSize = 1)
     private Long id;
 
+    //TODO: Não entendi pq tem essa lista aqui, penso que a classe Jogador que deveria ter o relacionamento com a Posição (Veigal)
     @OneToMany(mappedBy = "posicao")
     private List<Jogador> jogadores;
 
