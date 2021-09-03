@@ -16,11 +16,11 @@ public class ClubeTecnico implements Serializable {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "tecnico", foreignKey = @ForeignKey(name = "fk_idTecnico"))
+    @JoinColumn(name = "id_tecnico", foreignKey = @ForeignKey(name = "fk_idTecnico"))
     private Tecnico tecnico;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "clube", foreignKey = @ForeignKey(name = "fk_idClube"))
+    @JoinColumn(name = "id_clube", foreignKey = @ForeignKey(name = "fk_idClube"))
     private Clube clube;
 
     public ClubeTecnico() {

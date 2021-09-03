@@ -22,23 +22,19 @@ public class Jogo implements Serializable{
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "id_campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
     private Campeonato campeonato;
     
     @ManyToOne
-    @JoinColumn(name = "rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "id_rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
     private Rodada rodada;
     
     @ManyToOne
-    @JoinColumn(name = "clube1", foreignKey = @ForeignKey(name = "fkIdClube1"))
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "id_clube1", foreignKey = @ForeignKey(name = "fkIdClube1"))
     private Clube clube1;
 
     @ManyToOne
-    @JoinColumn(name = "clube2", foreignKey = @ForeignKey(name = "fkIdClube2"))
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "id_clube2", foreignKey = @ForeignKey(name = "fkIdClube2"))
     private Clube clube2;
     
     @Column(length = 2)

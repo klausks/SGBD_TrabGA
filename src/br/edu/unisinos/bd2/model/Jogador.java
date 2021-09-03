@@ -14,14 +14,12 @@ public class Jogador implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "posicao", foreignKey = @ForeignKey(name = "fkIdPosicao"))
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "id_posicao", foreignKey = @ForeignKey(name = "fkIdPosicao"))
     private Posicao posicao;
 
     @Column(length = 50, nullable = false)
     private String nome;
 
-    //TODO: A classe ClubeJogador deveria ter essa relação (Veigal)
     @OneToMany(mappedBy = "jogador")
     List<ClubeJogador> clubeJogadorList;
 

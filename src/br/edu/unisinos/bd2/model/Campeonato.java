@@ -1,12 +1,19 @@
 package br.edu.unisinos.bd2.model;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
 @Entity
-public class Campeonato implements Serializable {
+@Getter
+@Setter
+@RequiredArgsConstructor
+class Campeonato implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -26,14 +33,4 @@ public class Campeonato implements Serializable {
     @Column(length = 2, nullable = false)
     private int nroClubes;
 
-    public Campeonato() {
-
-    }
-
-    public Campeonato(String nome, int ano, int nroClubes) {
-        this.ano = ano;
-        this.nome = nome;
-        this.nroClubes = nroClubes;
-        this.rodadas = new ArrayList<Rodada>();
-    }
 }

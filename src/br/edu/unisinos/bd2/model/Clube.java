@@ -1,10 +1,18 @@
 package br.edu.unisinos.bd2.model;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Clube implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +30,8 @@ public class Clube implements Serializable {
     @OneToMany(mappedBy = "clube")
     private List<ClubeJogador> clubeJogadorList;
 
-    public Clube() {
+    @Column(nullable = false, name="dtFundacao")
+    private Date dataFuncacao;
 
-    }
+
 }
