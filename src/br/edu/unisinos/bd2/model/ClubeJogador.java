@@ -30,5 +30,8 @@ public class ClubeJogador implements Serializable {
     @JoinColumn(nullable = false, name = "id_jogador", foreignKey = @ForeignKey(name = "fk_idJogador"))
     private Jogador jogador;
 
-
+    public ClubeJogador(Clube clube, Jogador jogador){
+        this.clube = clube;
+        this.jogador = jogador;
+    }
 }

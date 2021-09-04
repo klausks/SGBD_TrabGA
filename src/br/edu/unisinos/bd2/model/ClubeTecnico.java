@@ -23,7 +23,8 @@ public class ClubeTecnico implements Serializable {
     @JoinColumn(name = "id_clube", foreignKey = @ForeignKey(name = "fk_idClube"))
     private Clube clube;
 
-    public ClubeTecnico() {
-
+    public ClubeTecnico(Tecnico t, Clube c) {
+        this.tecnico = t;
+        this.clube   = c;
     }
 }

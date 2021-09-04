@@ -25,8 +25,12 @@ public class Tecnico implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String nome;
 
     @OneToMany(mappedBy = "tecnico")
     private List<ClubeTecnico> clubeTecnicoList;
+
+    public Tecnico(String nome){
+        this.nome = nome;
+    }
 }

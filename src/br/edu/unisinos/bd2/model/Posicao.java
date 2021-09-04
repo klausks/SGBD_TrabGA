@@ -23,4 +23,8 @@ public class Posicao implements Serializable{
     @Column(length = 50, nullable = false)
     private String nome;
 
+    public Posicao(String nome){
+        this.nome = nome;
+    }
+
 }

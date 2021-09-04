@@ -23,7 +23,8 @@ public class Jogador implements Serializable {
     @OneToMany(mappedBy = "jogador")
     List<ClubeJogador> clubeJogadorList;
 
-    public Jogador() {
-
+    public Jogador(String nome, Posicao p) {
+        this.nome = nome;
+        this.posicao = p;
     }
 }

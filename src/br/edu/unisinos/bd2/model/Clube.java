@@ -33,5 +33,9 @@ public class Clube implements Serializable {
     @Column(nullable = false, name="dtFundacao")
     private Date dataFuncacao;
 
+    public Clube(String nome, Date dataFuncacao){
+        this.nome = nome;
+        this.dataFuncacao = dataFuncacao;
+    }
 
 }
