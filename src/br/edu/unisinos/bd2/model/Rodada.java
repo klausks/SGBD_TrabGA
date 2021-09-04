@@ -38,4 +38,13 @@ public class Rodada implements Serializable {
     @Column(length = 3)
     private int totalGols;
 
+    public Rodada(Campeonato campeonato, int idRodada, int totalJogos, int totalAmarelos, int totalVermelhos, int totalGols){
+        this.campeonato = campeonato;
+        this.idRodada = idRodada;
+        this.totalJogos = totalJogos;
+        this.totalAmarelos = totalAmarelos;
+        this.totalVermelhos = totalVermelhos;
+        this.totalGols = totalGols;
+    }
+
 }

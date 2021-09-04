@@ -13,9 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Jogo implements Serializable{
+public class Jogo implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "s_Jogo")
     @SequenceGenerator(name = "s_Jogo", sequenceName = "s_Jogo", allocationSize = 1)
@@ -24,11 +24,11 @@ public class Jogo implements Serializable{
     @ManyToOne
     @JoinColumn(nullable = false, name = "id_campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
     private Campeonato campeonato;
-    
+
     @ManyToOne
     @JoinColumn(nullable = false, name = "id_rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
     private Rodada rodada;
-    
+
     @ManyToOne
     @JoinColumn(nullable = false, name = "id_clube1", foreignKey = @ForeignKey(name = "fkIdClube1"))
     private Clube clube1;
@@ -36,7 +36,7 @@ public class Jogo implements Serializable{
     @ManyToOne
     @JoinColumn(nullable = false, name = "id_clube2", foreignKey = @ForeignKey(name = "fkIdClube2"))
     private Clube clube2;
-    
+
     @Column(length = 2)
     private Integer clube1Gol;
 
@@ -62,10 +62,36 @@ public class Jogo implements Serializable{
     private Integer clube2Ponto;
 
     public Jogo(Campeonato campeonato, Rodada rodada, Clube clube1, Clube clube2) {
-    	this.campeonato = campeonato;
-    	this.rodada = rodada;
-    	this.clube1 = clube1;
-    	this.clube2 = clube2;
+        this.campeonato = campeonato;
+        this.rodada = rodada;
+        this.clube1 = clube1;
+        this.clube2 = clube2;
+    }
+
+    public Jogo(Campeonato campeonato,
+                Rodada rodada,
+                Clube clube1,
+                Clube clube2,
+                int clube1Amarelo,
+                int clube2Amarelo,
+                int clube1Gol,
+                int clube2Gol,
+                int clube1Vermelho,
+                int clube2Vermelho,
+                int clube1Ponto,
+                int clube2Ponto) {
+        this.campeonato = campeonato;
+        this.rodada = rodada;
+        this.clube1 = clube1;
+        this.clube2 = clube2;
+        this.clube1Amarelo = clube1Amarelo;
+        this.clube2Amarelo = clube2Amarelo;
+        this.clube1Gol = clube1Gol;
+        this.clube2Gol = clube2Gol;
+        this.clube1Vermelho = clube1Vermelho;
+        this.clube2Vermelho = clube2Vermelho;
+        this.clube1Ponto = clube1Ponto;
+        this.clube2Ponto = clube2Ponto;
     }
 }
 

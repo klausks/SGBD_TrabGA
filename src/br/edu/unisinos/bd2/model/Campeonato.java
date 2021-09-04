@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @RequiredArgsConstructor
-class Campeonato implements Serializable {
+public class Campeonato implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -22,7 +22,7 @@ class Campeonato implements Serializable {
     private Long id;
 
     @OneToMany(mappedBy = "campeonato")
-    private List<Rodada> rodadas;
+    private List<Rodada> rodadas = new ArrayList<>();
 
     @Column(length = 50, nullable = false)
     private String nome;
@@ -32,5 +32,18 @@ class Campeonato implements Serializable {
 
     @Column(length = 2, nullable = false)
     private int nroClubes;
+
+    public Campeonato(String nome,  int ano, int nroClubes){
+        this.nome = nome;
+        this.ano = ano;
+        this.nroClubes = nroClubes;
+    }
+
+    @Override
+    public String toString() {
+        String str = "Campeonato: %s, criado em %d".format(this.nome, this.ano);
+        return str;
+    }
+
 
 }
