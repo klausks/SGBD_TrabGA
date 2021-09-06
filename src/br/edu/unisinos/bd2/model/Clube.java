@@ -1,6 +1,7 @@
 package br.edu.unisinos.bd2.model;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -21,7 +22,8 @@ public class Clube implements Serializable {
     @SequenceGenerator(name = "s_Clube", sequenceName = "s_Clube", allocationSize = 1)
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
+    @NonNull
     private String nome;
 
     @OneToMany(mappedBy = "clube")
@@ -30,12 +32,9 @@ public class Clube implements Serializable {
     @OneToMany(mappedBy = "clube")
     private List<ClubeJogador> clubeJogadorList;
 
-    @Column(nullable = false, name="dtFundacao")
-    private Date dataFuncacao;
+    @Column(name="dtFundacao")
+    @NonNull
+    private Date dataFundacao;
 
-    public Clube(String nome, Date dataFuncacao){
-        this.nome = nome;
-        this.dataFuncacao = dataFuncacao;
-    }
 
 }

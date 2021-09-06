@@ -1,6 +1,7 @@
 package br.edu.unisinos.bd2.model;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -20,10 +21,12 @@ public class Rodada implements Serializable {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(nullable = false, name = "id_campeonato", foreignKey = @ForeignKey(name = "fk_idCampeonato"))
+    @JoinColumn(name = "id_campeonato", foreignKey = @ForeignKey(name = "fk_idCampeonato"))
+    @NonNull
     private Campeonato campeonato;
 
-    @Column(length = 2, nullable = false, name = "id_rodada")
+    @Column(length = 2, name = "id_rodada")
+    @NonNull
     private int idRodada;
 
     @Column(length = 2)

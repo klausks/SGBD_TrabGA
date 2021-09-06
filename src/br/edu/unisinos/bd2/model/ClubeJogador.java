@@ -1,6 +1,7 @@
 package br.edu.unisinos.bd2.model;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -23,15 +24,13 @@ public class ClubeJogador implements Serializable {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(nullable = false, name = "id_clube", foreignKey = @ForeignKey(name = "fk_idClube"))
+    @JoinColumn(name = "id_clube", foreignKey = @ForeignKey(name = "fk_idClube"))
+    @NonNull
     private Clube clube;
 
     @ManyToOne(optional = false)
-    @JoinColumn(nullable = false, name = "id_jogador", foreignKey = @ForeignKey(name = "fk_idJogador"))
+    @JoinColumn(name = "id_jogador", foreignKey = @ForeignKey(name = "fk_idJogador"))
+    @NonNull
     private Jogador jogador;
 
-    public ClubeJogador(Clube clube, Jogador jogador){
-        this.clube = clube;
-        this.jogador = jogador;
-    }
 }

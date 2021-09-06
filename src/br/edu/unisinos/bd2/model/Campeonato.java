@@ -1,8 +1,6 @@
 package br.edu.unisinos.bd2.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,20 +22,19 @@ public class Campeonato implements Serializable {
     @OneToMany(mappedBy = "campeonato")
     private List<Rodada> rodadas = new ArrayList<>();
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
+    @NonNull
     private String nome;
 
-    @Column(length = 4, nullable = false)
+    @Column(length = 4)
+    @NonNull
     private int ano;
 
-    @Column(length = 2, nullable = false)
+    @Column(length = 2)
+    @NonNull
     private int nroClubes;
 
-    public Campeonato(String nome,  int ano, int nroClubes){
-        this.nome = nome;
-        this.ano = ano;
-        this.nroClubes = nroClubes;
-    }
+
 
     @Override
     public String toString() {

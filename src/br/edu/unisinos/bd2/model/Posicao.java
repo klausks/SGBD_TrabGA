@@ -1,13 +1,15 @@
 package br.edu.unisinos.bd2.model;
 
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Posicao implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -20,11 +22,8 @@ public class Posicao implements Serializable{
     @OneToMany(mappedBy = "posicao")
     private List<Jogador> jogadores;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
+    @NonNull
     private String nome;
-
-    public Posicao(String nome){
-        this.nome = nome;
-    }
 
 }

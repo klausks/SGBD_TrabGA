@@ -1,10 +1,14 @@
 package br.edu.unisinos.bd2.model;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@RequiredArgsConstructor
 public class Jogador implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -13,18 +17,18 @@ public class Jogador implements Serializable {
     @SequenceGenerator(name = "s_Jogador", sequenceName = "s_Jogador", allocationSize = 1)
     private Long id;
 
+    @Column(length = 50)
+    @NonNull
+    private String nome;
+
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_posicao", foreignKey = @ForeignKey(name = "fkIdPosicao"))
+    @JoinColumn(name = "id_posicao", foreignKey = @ForeignKey(name = "fkIdPosicao"))
+    @NonNull
     private Posicao posicao;
 
-    @Column(length = 50, nullable = false)
-    private String nome;
 
     @OneToMany(mappedBy = "jogador")
     List<ClubeJogador> clubeJogadorList;
 
-    public Jogador(String nome, Posicao p) {
-        this.nome = nome;
-        this.posicao = p;
-    }
+
 }

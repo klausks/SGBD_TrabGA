@@ -1,8 +1,6 @@
 package br.edu.unisinos.bd2.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class ClassificacaoRodada implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,18 +20,22 @@ public class ClassificacaoRodada implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
+    @JoinColumn(name = "id_campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
+    @NonNull
     private Campeonato campeonato;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
+    @JoinColumn(name = "id_rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
+    @NonNull
     private Rodada rodada;
 
-    @Column(name="posicao", length = 2, nullable = false)
+    @Column(name="posicao", length = 2)
+    @NonNull
     private int posicao;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_clube", foreignKey = @ForeignKey(name = "fkIdClube"))
+    @JoinColumn(name = "id_clube", foreignKey = @ForeignKey(name = "fkIdClube"))
+    @NonNull
     private Clube clube;
 
     @Column(name="totalPontos", length = 3)

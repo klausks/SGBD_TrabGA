@@ -1,5 +1,8 @@
 package br.edu.unisinos.bd2.model;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -13,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
+@RequiredArgsConstructor
 public class Jogo implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -22,19 +26,23 @@ public class Jogo implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
+    @JoinColumn(name = "id_campeonato", foreignKey = @ForeignKey(name = "fkIdCampeonato"))
+    @NonNull
     private Campeonato campeonato;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
+    @JoinColumn(name = "id_rodada", foreignKey = @ForeignKey(name = "fkIdRodada"))
+    @NonNull
     private Rodada rodada;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_clube1", foreignKey = @ForeignKey(name = "fkIdClube1"))
+    @JoinColumn(name = "id_clube1", foreignKey = @ForeignKey(name = "fkIdClube1"))
+    @NonNull
     private Clube clube1;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "id_clube2", foreignKey = @ForeignKey(name = "fkIdClube2"))
+    @JoinColumn(name = "id_clube2", foreignKey = @ForeignKey(name = "fkIdClube2"))
+    @NonNull
     private Clube clube2;
 
     @Column(length = 2)
@@ -60,13 +68,6 @@ public class Jogo implements Serializable {
 
     @Column(length = 1)
     private Integer clube2Ponto;
-
-    public Jogo(Campeonato campeonato, Rodada rodada, Clube clube1, Clube clube2) {
-        this.campeonato = campeonato;
-        this.rodada = rodada;
-        this.clube1 = clube1;
-        this.clube2 = clube2;
-    }
 
     public Jogo(Campeonato campeonato,
                 Rodada rodada,

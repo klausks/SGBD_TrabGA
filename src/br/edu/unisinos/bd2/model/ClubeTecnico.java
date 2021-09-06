@@ -1,5 +1,8 @@
 package br.edu.unisinos.bd2.model;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@RequiredArgsConstructor
 public class ClubeTecnico implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,14 +21,12 @@ public class ClubeTecnico implements Serializable {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_tecnico", foreignKey = @ForeignKey(name = "fk_idTecnico"))
+    @NonNull
     private Tecnico tecnico;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_clube", foreignKey = @ForeignKey(name = "fk_idClube"))
+    @NonNull
     private Clube clube;
 
-    public ClubeTecnico(Tecnico t, Clube c) {
-        this.tecnico = t;
-        this.clube   = c;
-    }
 }
